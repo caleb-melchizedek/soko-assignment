@@ -1,0 +1,34 @@
+Components(with templates):
+Navbar
+    shop name
+    shop location
+    shop icon
+    bag link:
+      icon
+      notification badge
+      "Bag"
+    account link:
+      icon
+      "account"
+    page based:
+      Order number
+      customer tel
+      category name
+      search bar
+      
+
+Category list
+    categories
+    category size
+    view all categories
+
+Category products
+    category name + 
+
+Bag
+product details
+order confirmed
+order details
+account
+   orders
+   addresses

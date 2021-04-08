@@ -1,0 +1,26 @@
+.avatar{
+  width:60px;
+  height: 60px;
+  background-color: rgb(196, 191, 191);
+  text-align: center;
+  border-radius: 50%;
+  margin-right:10px;
+}
+
+nav{
+  margin-bottom: 2px;
+  padding:10px;
+  border-bottom:solid rgb(196, 191, 191) 1px;
+  
+}
+
+.thumbnail{
+  width:70px;
+  height:70px;
+  
+}
+.listItem{
+  height:100px;
+  width:100%;
+  padding:4px;
+}
