@@ -1,28 +1,44 @@
+import {useHistory} from 'react-router-dom'
 
-const ProductList = () => {
+
+const ProductList = (props) => {
+  const {categoryName,categoryLength,categoryProducts, viewProduct,addToBag} = props
+  let history=useHistory();
   return ( 
     <div>
+      
       <div className="d-inline">
-        <h5>Category <small><span class="badge bg-primary">10</span></small></h5>
+        <h5>{categoryName== null?"":categoryName[0].toUpperCase()+categoryName.substring(1)} 
+          <small className="p-2">
+            <span className="badge bg-primary" >{categoryName==null?null :categoryLength }</span>
+          </small>
+        </h5>
         
       </div>
-      <div className="listItem card ">
-        <div className="d-inline-flex justify-content-between">
-          <img className="thumbnail rounded " src="sad.png" alt="sock image"/>
-          <div className="p-3">
-            <h6>Socks for the winter</h6>
-            <p>USD 100</p>
-          </div>
-          <div className="d-flex align-items-end ">
-            <div className="p-3 ">
-              <button type="button" className="btn btn-outline-primary " style={{width:'70px', height:'30px',padding:'0px'}}>
-                <i className="bi bi-plus"></i>
-                <small>Add</small>
-              </button>
+      { categoryProducts.map((product)=>{
+        return(
+          <div className="list-Item card p-2"  >
+          
+            <div className="d-flex ">
+              <div className="d-inline-flex  flex-grow-1" onClick={()=>{viewProduct(product.name); history.push("/viewProduct")}}>
+                <img className="thumbnail rounded " src={product.images[0]} alt="sock"/>
+                <div className="p-3">
+                  <h6>{product.name}</h6>
+                  <p className="text-muted ">${product.price}</p>
+                </div>
               </div>
+              <div className="d-flex align-self-end ">
+                <button type="button" className="btn btn-outline-primary " style={{width:'70px', height:'30px',padding:'0px'}} onClick={()=>{addToBag(product.name)}}>
+                  <i className="bi bi-plus"></i>
+                  <small  >Add</small>
+                </button>
+              </div>
+            </div>
           </div>
-        </div>  
-    </div>
+             
+        )
+        })
+      }
     </div>
    );
 }

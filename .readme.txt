@@ -1,3 +1,6 @@
+stateData
+
+
 Components(with templates):
 Navbar
     shop name

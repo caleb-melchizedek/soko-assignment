@@ -1,26 +1,17 @@
 const CategoryList = (props) => {
+const {categories, handleClick} = props
     return ( 
     <div>
-            {/* props.categories.map( (category)=>{
-                return(
-                   <div>
-                        
-                   </div>
-                )
-            }); */}
-
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                The current link item
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-            <a href="#" class="list-group-item list-group-item-action">A disabled link item</a>
-            <a href="#" class="list-group-item list-group-item-action">view all categories</a>
-        </div>
-
-            
+      <div className="list-group">
+        { categories.map( (category)=>{
+            return(
+                <a class="list-group-item list-group-item-action " data-toggle="button" aria-current="true" onClick={()=> {handleClick({category})}} >
+                  {category[0].toUpperCase()+category.substring(1)}
+              </a>
+            )
+          })
+        }
+      </div>
      </div>
     )
 }
